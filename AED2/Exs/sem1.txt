@@ -1,0 +1,47 @@
+NO* removeAdj(VERTICE* g, int n) {
+    NO* p = NULL;
+    NO* prox = NULL;
+    for (int i = 0; i < n; ++i) {
+        p = g[i].inicio;
+        do {
+            if (p == NULL) break;
+            if (p->peso != 1){
+                if (p-> prox != NULL) prox = p->prox;
+                else prox = NULL;
+                p->v = NULL;
+                p->peso = NULL;
+                free(p);
+                p = NULL;
+                p = prox;
+            }
+            else p = p->prox;
+        } while (p);
+    }
+    g->inicio = g[1].inicio;
+    return g->inicio;
+}
+
+void adjacencia2incidencia(VERTICE* g, int n) {
+    NO* p = NULL;
+    NO* ant = NULL;
+    NO* aux = NULL;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            p = g[j].inicio;
+            do {
+                if(p != NULL && p->v == i && p->peso != 1) {
+                    NO* novo = (NO*) malloc(sizeof (NO));
+                    novo->v = j;
+                    novo->peso = 1;
+                    aux = g[i].inicio;
+                    g[i].inicio = novo;
+                    novo->prox = aux;
+                }
+                if(p == NULL) break;
+                p = p->prox;
+            } while (p);
+        }
+    }
+    g->inicio = removeAdj(g, n);
+    return;
+}

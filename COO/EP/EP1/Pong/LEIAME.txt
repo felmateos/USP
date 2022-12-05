@@ -1,0 +1,16 @@
+Felipe Mateos Castro de Souza NºUSP: 11796909
+
+As seguintes linhas de comando são necessárias para compilar o programa no cmd do Windows:
+
+cd "caminho do arquivo src aqui"
+javac *.java
+java Pong
+
+
+
+Caso o programa não execute, utilize as seuguintes linhas de comando:
+
+cd "caminho do arquivo src aqui"
+javac *.java
+java Pong 10 true
+java Pong

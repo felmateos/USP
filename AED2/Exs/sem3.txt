@@ -1,0 +1,183 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <string.h>
+
+typedef struct aresta {
+    struct aresta* prox;
+    int v; // vértice de destino da aresta
+    int peso; // opcional = peso da aresta
+} NO;
+
+typedef struct vert {
+    NO* inicio;
+    bool chave;
+    int flag;
+} VERTICE;
+
+typedef struct {
+    NO* inicio;
+    NO* fim;
+} FILA;
+
+typedef struct {
+    NO* topo;
+    int tam;
+} PILHA;
+
+VERTICE* criaGrafo(int n) {
+    VERTICE* gr = (VERTICE*) malloc(sizeof (VERTICE)*n);
+    for (int i = 0; i < n; ++i) {
+        gr[i].inicio = NULL;
+        gr[i].chave = false;
+        gr[i].flag = 0;
+        if (i == 7 || i == 9) gr[i].chave = true;
+    }
+    return gr;
+}
+
+NO* criaAdj(int v, int peso) {
+    NO* temp = (NO*) malloc(sizeof (NO));
+    temp->peso = peso;
+    temp->v = v;
+    return temp;
+}
+
+bool criaAresta(VERTICE* gr, int vi, int vf, int peso) {
+    NO* novo = criaAdj(vf, peso);
+    novo->prox = gr[vi].inicio;
+    gr[vi].inicio = novo;
+    return true;
+}
+
+void inicializarPilha(PILHA* pi) {
+    pi->topo = NULL;
+    pi->tam = 0;
+}
+
+void push(PILHA* pi, int peso) {
+    NO* novo = (NO*) malloc(sizeof(NO));
+    novo->peso = peso;
+    novo->prox = pi->topo;
+    pi->topo = novo;
+
+}
+
+int pop(PILHA* pi) {
+    NO* aux;
+    int peso;
+    if(!pi->topo) return(-1);
+    aux = pi->topo;
+    peso = aux->peso;
+    pi->topo = pi->topo->prox;
+    free(aux);
+    return(peso);
+}
+
+void inicializarFila(FILA* f) {
+    f->inicio = NULL;
+    f->fim = NULL;
+}
+
+void entrarFila(FILA *f, int i) {
+    //printf("VERTICE: %d ", i);
+    NO* novo;
+    novo = (NO*) malloc(sizeof(NO));
+    novo->v = i;
+    novo->prox = NULL;
+    if(f->fim) f->fim->prox = novo;
+    else f->inicio = novo;
+    f->fim = novo;
+}
+
+int sairFila(FILA* f) {
+    NO* aux;
+    int v;
+    if(!f->inicio) return(-1);
+    v = f->inicio->v;
+    aux = f->inicio;
+    f->inicio = f->inicio->prox;
+    free(aux);
+    if(!f->inicio) f->fim = NULL;
+    //printf("**SAIR: %d** ", v);
+    return(v);
+}
+
+int somaPilha(PILHA* pi) {
+    NO* p = pi->topo;
+    int soma = 0;
+    while (p) {
+        soma = soma + p->peso;
+        p = p->prox;
+    }
+    printf("soma: %d", soma);
+    return soma;
+}
+
+int encontraCaminho(VERTICE* g, int i, int proc, int dist, PILHA* pi) {
+    printf("VERTICE: %d ", i);
+    g[i].flag = 1;
+
+    NO* p = g[i].inicio;
+    push(pi, p->peso);
+
+    if (i == proc && pi->tam == dist) return somaPilha(pi);
+    if (pi->tam == dist-1) return -1;
+
+    while (p) {
+        int resp = 0;
+        if (g[p->v].flag == 0 && pi->tam < dist) resp = encontraCaminho(g, p->v, proc, dist, pi);
+        if (resp != -1 && resp != 0) return resp;
+        pop(pi);
+        p = p->prox;
+    }
+    g[i].flag = 2;
+    return -1;
+}
+
+void resetaFlags(VERTICE* g) {
+    int i = 0;
+    while(true) {
+        if(g[i].inicio == NULL) break;
+        g[i].flag = 0;
+        i++;
+    }
+}
+
+int custoChaveMaisProxima(VERTICE* g, int i) { //void custoChaveMaisProxima(VERTICE* g, int i)
+    int soma = 0;
+    int dist = 0;
+    int inicio = i;
+    FILA f;
+    inicializarFila(&f);
+    PILHA pi;
+    inicializarPilha(&pi);
+    g[i].flag = 1;
+    entrarFila(&f,  i);
+    if (g[i].chave) return 0;
+    while (f.inicio) {
+        if (g[i].chave) {
+            resetaFlags(g);
+            encontraCaminho(g, inicio, i, dist, &pi);
+        }
+        i = sairFila(&f);
+        NO* p = g[i].inicio;
+        while(p) {
+            if(!p->prox) dist++;
+            if(g[p->v].flag == 0) {
+                //printf("VERTICE: %d ", p->v);
+                g[p->v].flag = 1;
+                entrarFila(&f, p->v);
+            }
+            p = p->prox;
+        }
+        g[i].flag = 2;
+    }
+}
+
+int main() {
+    int result;
+    result = custoChaveMaisProxima(grafo, 0);
+
+    return 0;
+}

@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <string.h>
+
+typedef struct aresta {
+    struct aresta* prox;
+    int v; // vértice de destino da aresta
+    int peso; // opcional = peso da aresta
+} NO;
+
+typedef struct vert {
+    NO* inicio;
+    bool chave;
+    int flag;
+} VERTICE;
+
+VERTICE* criaGrafo(int n) {
+    VERTICE* gr = (VERTICE*) malloc(sizeof (VERTICE)*n);
+    for (int i = 0; i < n; ++i) {
+        gr[i].inicio = NULL;
+        gr[i].chave = false;
+        gr[i].flag = 0;
+    }
+    return gr;
+}
+
+NO* criaAdj(int v, int peso) {
+    NO* temp = (NO*) malloc(sizeof (NO));
+    temp->peso = peso;
+    temp->v = v;
+    return temp;
+}
+
+bool criaAresta(VERTICE* gr, int vi, int vf, int peso) {
+    NO* novo = criaAdj(vf, peso);
+    novo->prox = gr[vi].inicio;
+    gr[vi].inicio = novo;
+    return true;
+}
+
+void salasComChaves(VERTICE* gr, int i, NO* ant, NO** comeco) {
+    if (gr[i].chave) {
+        NO* novo =(NO*) malloc(sizeof (NO));
+        novo->v = i;
+        novo->peso = NULL;
+        novo->prox = NULL;
+        if (!ant) {
+            ant = novo;
+            ant->prox = NULL;
+            *comeco = ant;
+        }
+        else {
+            while (true) {
+                if (!ant->prox) {
+                    ant->prox = novo;
+                    break;
+                }
+                ant = ant->prox;
+            }
+        }
+    }
+    gr[i].flag = 1;
+    NO* p = gr[i].inicio;
+    while (p) {
+        if (gr[p->v].flag == 0) salasComChaves(gr, p->v, ant, comeco);
+        p = p->prox;
+    }
+    gr[i].flag = 2;
+}
+
+void DFS(VERTICE* gr, int i, int* resp) {
+    if (gr[i].chave) {
+        *resp = i;
+        return;
+    }
+    gr[i].flag = 1;
+
+    NO* p = gr[i].inicio;
+
+    while (p) {
+        if (gr[p->v].flag == 0) DFS(gr, p->v, resp);
+        p = p->prox;
+    }
+    gr[i].flag = 2;
+}
+
+void imprimeGrafo(VERTICE* gr, int n) {
+    for (int i = 0; i < n; ++i) {
+        printf("v%d: ", i);
+        NO* adj = gr[i].inicio;
+        while (adj) {
+            printf("v%d(%d) ", adj->v, adj->peso);
+            adj = adj->prox;
+        }
+        printf("%d ", gr[i].chave);
+        printf("\n");
+    }
+}
+
+void imprimeListaLigada(NO* p) {
+    while (p) {
+        printf("v(%d) ", p->v);
+        p = p->prox;
+    }
+}
+
+int main() {
+    
+    //Exemplo de teste usado:
+    int n = 10;
+    VERTICE* gr = criaGrafo(n);
+    criaAresta(gr, 0, 1, 2);
+    criaAresta(gr, 1, 2, 4);
+    criaAresta(gr, 2, 0, 12);
+    criaAresta(gr, 2, 4, 40);
+    criaAresta(gr, 3, 1, 3);
+    criaAresta(gr, 3, 6, 3);
+    criaAresta(gr, 4, 3, 8);
+    criaAresta(gr, 5, 9, 7);
+    criaAresta(gr, 5, 7, 13);
+    criaAresta(gr, 6, 5, 56);
+    criaAresta(gr, 7, 8, 45);
+    criaAresta(gr, 8, 2, 9);
+    criaAresta(gr, 9, 7, 31);
+    
+    //visualizacao do grafo
+    imprimeGrafo(gr, n);
+
+    //ponteiro do começo da lista de salas com chaves
+    NO* comeco = NULL;
+    
+    //funcao que procura as salas com chaves
+    salasComChaves(gr, 0, NULL, &comeco);
+    
+    //visualizacao da lista criada
+    imprimeListaLigada(comeco);
+
+    return 0;
+}
