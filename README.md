@@ -1,5 +1,5 @@
 # USP
-Disciplias que cursei durante minha graduação de Sistemas de Informação na Universidade de São Paulo (USP).
+Disciplinas que cursei durante minha graduação de Sistemas de Informação na Universidade de São Paulo (USP).
 
 1º sem
  - Tratamento e Análise de Dados / Informações
