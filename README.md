@@ -12,12 +12,13 @@ Disciplinas que cursei durante minha graduação de Sistemas de Informação na 
 2º sem
  - Introdução à Análise de Algoritmos
  - Cálculo II
+ - Matemática Discreta I
  - Algoritmos e Estruturas de Dados I
  - Matrizes, Vetores e Geometria Analítica
 
 3º sem
  - Computação Orientada a Objetos
- - Matemática Discreta I
+ - Organização e Arquitetura de Computadores I
  - Algoritmos e Estruturas de Dados II
  - Introdução à Estatística
  - Introdução à Administração e Economia para Computação
@@ -32,7 +33,6 @@ Disciplinas que cursei durante minha graduação de Sistemas de Informação na 
 5º sem
  - Análise, Projeto e Interface Humano-Computador
  - Bancos de Dados 2 
- - Organização e Arquitetura de Computadores I
  - Introdução à Teoria da Computação
  - Desenvolvimento de Sistemas de Informação Distribuídos
 
@@ -50,7 +50,15 @@ Disciplinas que cursei durante minha graduação de Sistemas de Informação na 
  - Ciências da Natureza - Ciências do Universo
  - Inteligência Artificial
  - Projeto Supervisionado ou de Graduação I
- - Computação Gráfica
- - Mineração de Dados
  - Governo Aberto
  - Como Criar Uma Startup
+ - Análise de Redes Sociais (Mestrado)
+ - Análise de Algoritmos e Estruturas de Dados (Mestrado)
+ 
+ Por vir...
+ 
+ 8º Sem
+ 
+ 9º Sem
+ 
+ 10º Sem
