@@ -1,5 +1,5 @@
 # USP
-Disciplinas que cursei durante minha graduação de Sistemas de Informação na Universidade de São Paulo (USP).
+Disciplinas que cursei durante minha Graduação de Sistemas de Informação na Universidade de São Paulo (USP).
 
 1º sem
  - Tratamento e Análise de Dados / Informações
@@ -52,8 +52,8 @@ Disciplinas que cursei durante minha graduação de Sistemas de Informação na 
  - Projeto Supervisionado ou de Graduação I
  - Governo Aberto
  - Como Criar Uma Startup
- - Análise de Redes Sociais (Mestrado)
- - Análise de Algoritmos e Estruturas de Dados (Mestrado)
+ - Análise de Redes Sociais (Adiantamento do Mestrado)
+ - Análise de Algoritmos e Estruturas de Dados (Adiantamento do Mestrado)
  
  Por vir...
  
