@@ -51,7 +51,7 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  - Inteligência Artificial
  - Projeto Supervisionado ou de Graduação I
  - Governo Aberto
- - Como Criar Uma Startup
+ - Evolução Biológica e Aplicada
  - Análise de Redes Sociais (Adiantamento do Mestrado)
  - Análise de Algoritmos e Estruturas de Dados (Adiantamento do Mestrado)
  
