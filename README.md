@@ -58,6 +58,10 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  Por vir...
  
  8º Sem
+ - Qualidade de Software
+ - Construção de Compiladores
+ - Introdução ao Processamento de Língua Natural
+ - Projeto Supervisionado ou de Graduação II
  
  9º Sem
  
