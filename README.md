@@ -49,7 +49,6 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
 7º sem
  - Ciências da Natureza - Ciências do Universo
  - Inteligência Artificial
- - Projeto Supervisionado ou de Graduação I
  - Governo Aberto
  - Evolução Biológica e Aplicada
  
@@ -57,13 +56,13 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  - Qualidade de Software
  - Introdução ao Processamento de Língua Natural
  - Análise de Redes Sociais
- - Projeto Supervisionado ou de Graduação II
  
  9º Sem
  - Introdução à Ciência de Dados
  - Tópicos Especiais em Banco de Dados
  - Análise de Algoritmos e Estruturas de Dados (Adiantamento do Mestrado)
  - Experimentação em Aprendizado de Máquina Supervisionado (Adiantamento do Mestrado)
+ - Projeto Supervisionado ou de Graduação I
  
  Por vir...
  
