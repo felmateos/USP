@@ -46,7 +46,7 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  - Segurança da Informação
  - Desafios de Programação II
 
-7º sem (atual)
+7º sem
  - Ciências da Natureza - Ciências do Universo
  - Inteligência Artificial
  - Projeto Supervisionado ou de Graduação I
