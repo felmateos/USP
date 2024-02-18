@@ -59,7 +59,6 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  
  9º Sem
  - Introdução à Ciência de Dados
- - Tópicos Especiais em Banco de Dados
  - Análise de Algoritmos e Estruturas de Dados (Adiantamento do Mestrado)
  - Experimentação em Aprendizado de Máquina Supervisionado (Adiantamento do Mestrado)
  - Projeto Supervisionado ou de Graduação I
