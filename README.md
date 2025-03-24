@@ -52,17 +52,18 @@ Disciplinas que cursei durante minha Graduação de Sistemas de Informação na 
  - Governo Aberto
  - Evolução Biológica e Aplicada
  
- 8º Sem
+8º Sem
  - Qualidade de Software
  - Introdução ao Processamento de Língua Natural
  - Análise de Redes Sociais
  
- 9º Sem
+9º Sem
  - Introdução à Ciência de Dados
  - Análise de Algoritmos e Estruturas de Dados (Adiantamento do Mestrado)
  - Experimentação em Aprendizado de Máquina Supervisionado (Adiantamento do Mestrado)
  - Projeto Supervisionado ou de Graduação I
  
- Por vir...
- 
- 10º Sem
+10º Sem
+ - Projeto Supervisionado ou de Graduação II
+ - Sociedade, Multiculturalismo e Cidadania
+ - Inteligência Computacional (Adiantamento do Mestrado)
